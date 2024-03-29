@@ -95,6 +95,7 @@ body{
 input{
   border: 2px solid gray;
   background: transparent;
+  padding: 0 5px;
 }
 button{
   width: 80px;
