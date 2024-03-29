@@ -1,7 +1,10 @@
 .App {
+  padding: 20px;
   text-align: center;
 }
-
+body{
+  background-color: rgb(250, 250, 250);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +38,76 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container1{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 10px;
+}
+.myBudget, .remaining, .spent{
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 10px;
+  padding: 20px 30px;
+  font-size: 1.5rem;
+}
+.myBudget{
+  background-color: #282c34;
+  color: white;
+}
+.remaining{
+  background-color: rgb(235, 176, 88);
+}
+.spent{
+  background-color: #ec5d31;
+  color: white;
+}
+.container2{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.expenseCard{
+  background-color: #52656e;
+  width: 50%;
+  height: 30px;
+  justify-content: space-between;
+  padding: 5px 20px;
+  border-radius: 5px;
+  color: white;
+}
+.delete{
+  color: rgb(0, 0, 0);
+  width: 20px;
+  height: 20px;
+  transition: all .2s;
+}
+.delete:hover{
+  color: red;
+}
+input{
+  border: 2px solid gray;
+  background: transparent;
+}
+button{
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #282c34;
+  color: white;
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: all .3s;
+}
+button:hover{
+  background-color: #181a1f;
+  color: rgb(216, 216, 216) ;
 }

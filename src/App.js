@@ -3,7 +3,7 @@ import './App.css';
 import { AiFillCloseCircle } from "react-icons/ai";
 
 const App = () => {
-  const [budget, setBudget] = useState(2000);
+  const [budget, setBudget] = useState(50000);
   const [list, setList] =  useState([]);
   useEffect(() => {
     const localData = JSON.parse(localStorage.getItem('data'))
@@ -49,18 +49,18 @@ const App = () => {
       <h1>My budget Planner</h1>
       <div className='container1'>
         <div className='myBudget'>My budget: {budget}</div>
-        <div className='ramaining'>Remaining: {budget - calculateTotal()}</div>
+        <div className='remaining'>Remaining: {budget - calculateTotal()}</div>
         <div className='spent'>Spent: {calculateTotal()}</div>
       </div>
       <div className='container2'>
         <h1>Expenses</h1>
-        {list.length === 0 ? <h3>Add data to list...</h3> : list.map((item, idx) => {
+        {list.length === 0 ? <h3 style={{color:'green'}}>Add data to list...</h3> : list.map((item, idx) => {
           return(
-            <div key={item.name}>
+            <div className='expenseCard' style={{display:'flex', alignItems:'center'}} key={item.name}>
               {item.name}
-              <span>
+              <span style={{display:'flex', gap:'10px', alignItems:'center', justifyContent:'space-between'}}>
                 Rs.{item.rupees}
-                <AiFillCloseCircle  onClick={()=> deleteFunction(item.name)} />
+                <AiFillCloseCircle className='delete' style={{cursor:'pointer'}} onClick={()=> deleteFunction(item.name)} />
                 </span>
             </div>
           )
@@ -72,11 +72,11 @@ const App = () => {
           <div className='form-container' style={{display:'flex', width:'97%', padding:'20px', justifyContent:'center', gap:'20px' }}>
             <div style={{display:'flex', flexDirection:'column', width:'40%', alignItems:'flex-start', gap:'10px'}}>
               <label>Name</label>
-              <input type='text' ref={nameRef} style={{width:'100%', height:'40px', borderRadius:'10px'}} />
+              <input type='text' ref={nameRef} style={{width:'100%', height:'40px', borderRadius:'5px'}} />
             </div>
             <div style={{display:'flex', flexDirection:'column', width:'40%', alignItems:'flex-start', gap:'10px'}}>
               <label>Cost</label>
-              <input type='Number' ref={costRef} style={{width:'100%', height:'40px', borderRadius:'10px'}} />
+              <input type='Number' ref={costRef} style={{width:'100%', height:'40px', borderRadius:'5px'}} />
             </div>
           </div>
           <button type='submit'>Save</button>
